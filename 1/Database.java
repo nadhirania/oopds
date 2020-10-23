@@ -4,8 +4,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-import java.io.File;
+import java.util.Collections;
 
 public class Database {
   //DISPLAY MENU FROM CSV FILE
@@ -16,8 +15,9 @@ public class Database {
     Path menu_path = Paths.get("menu.csv");
     try {
       List<String> lines = Files.readAllLines(menu_path);
+      Collections.sort(lines);
 
-      for (int i = 0; i < lines.size(); i++) { //0 is from ArrayList
+      for (int i = 0; i < lines.size(); i++) {
         // split a line by comma
         String[] items = lines.get(i).split(",");
         // items[0] is code, items[1] is name, items[2] is price
@@ -32,7 +32,7 @@ public class Database {
       }return menu;
   }
 
-  private static void saveFoodeliverMenuToFile(ArrayList<FoodeliverMenu> menu) throws IOException {
+  public static void saveFoodeliverMenuToFile(ArrayList<FoodeliverMenu> menu) throws IOException {
     // read menu.csv into a list of lines.
     StringBuilder sb = new StringBuilder();
     for (int i = 0; i < menu.size(); i++) {
