@@ -11,8 +11,7 @@ public class FoodeliverMenu {
 	}
 
 	public String toString(){
-		//return code + " " + name + " " + price;
-		return "";
+		return code + " " + name + " " + " RM" + price + "0 " + "\n";
 	}
 
 	public String toCSVString() {
